@@ -24,63 +24,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
       rel="stylesheet"
     />
-    <style>
-      body {
-        display: flex;
-        min-height: 100vh;
-        flex-direction: column;
-      }
-      main {
-        flex: 1 0 auto;
-      }
-      .page-footer {
-        padding-top: 0;
-      }
-      .page-footer .row {
-        margin-bottom: 0;
-      }
-      .page-footer p {
-        font-size: 0.9rem;
-      }
-      .footer-copyright {
-        padding: 5px 0;
-      }
-      .footer-copyright span {
-        font-size: 0.8rem;
-      }
-      .btn, .btn-large {
-        background-color: #1565c0;
-      }
-      .btn:hover, .btn-large:hover {
-        background-color: #0d47a1;
-      }
-      .row {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      .col {
-        display: flex;
-      }
-      .card {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-      .card-content {
-        flex-grow: 1;
-      }
-      .card-action {
-        margin-top: auto;
-        padding: 16px;
-        text-align: center;
-      }
-      .card-action .btn {
-        margin: 0 auto;
-        display: block;
-      }
-    </style>
+    <link href="{% static 'styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/terms.css' %}" rel="stylesheet">
   </head>
-  <body>
+  <body class="page-body">
     <nav class="nav-wrapper blue darken-3">
       <div class="container">
         <a href="{% url 'index' %}" class="brand-logo">
@@ -96,11 +43,17 @@
       </div>
     </nav>
 
-    <main>
+    <main class="page-main">
       <div class="container">
         <div class="section">
-          <h3 class="header">{% block page-title %}{% endblock page-title %}</h3>
-          <p class="flow-text">{% block page-lead %}{% endblock page-lead %}</p>
+          <div class="row">
+            <div class="col s12">
+              <div class="page-header-container">
+                <h3 class="page-header">{% block page-title %}{% endblock page-title %}</h3>
+                <p class="page-lead">{% block page-lead %}{% endblock page-lead %}</p>
+              </div>
+            </div>
+          </div>
         </div>
         {% block content %}{% endblock content %}
       </div>
@@ -111,17 +64,17 @@
         <div class="row">
           <div class="col l6 s12">
             <h6 class="white-text">Network Anki</h6>
-            <p class="grey-text text-lighten-4">Система для изучения сетевых терминов</p>
+            <p class="grey-text text-lighten-4 footer-text">Система для изучения сетевых терминов</p>
           </div>
           <div class="col l6 s12">
             <h6 class="white-text">Контакты</h6>
-            <p class="grey-text text-lighten-4">Email: support@networkanki.com</p>
+            <p class="grey-text text-lighten-4 footer-text">Email: support@networkanki.com</p>
           </div>
         </div>
       </div>
       <div class="footer-copyright">
         <div class="container">
-          <span>© 2024 Network Anki</span>
+          <span class="copyright-text">© 2024 Network Anki</span>
         </div>
       </div>
     </footer>

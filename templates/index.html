@@ -1,0 +1,48 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Компьютерные сети и их термины
+{% endblock page-title %}
+
+{% block content %}
+<div class="container">
+    <h4 class="header">Что есть в этом проекте</h4>
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Список терминов</span>
+                    <p>Простая страница с контентом, который разложен в таблицу. Содержимое таблицы находится в текстовом
+                        файле (если вы уверенно себя чувствуете, замените текстовый файл на базу данных).</p>
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'terms-list' %}" class="btn">Посмотреть</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Форма для заполнения термина</span>
+                    <p>Пример POST-запроса, который отправится после того, как вы заполните форму. Он допишет термин в ваш
+                        текстовый файл, и если всё будет успешно — вас перенаправят на страницу терминов</p>
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'add-term' %}" class="btn">Заполнить</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Статистика</span>
+                    <p>Сколько терминов уже есть? Какой они длины?</p>
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'stats' %}" class="btn">Изучить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

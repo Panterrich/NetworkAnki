@@ -1,0 +1,56 @@
+[
+    {
+        "model": "network_anki.terms",
+        "pk": 1,
+        "fields": {
+            "term": "IP-адрес",
+            "definition": "Уникальный числовой идентификатор устройства в компьютерной сети, работающей по протоколу IP",
+            "created_at": "2024-03-20T12:00:00Z"
+        }
+    },
+    {
+        "model": "network_anki.terms",
+        "pk": 2,
+        "fields": {
+            "term": "MAC-адрес",
+            "definition": "Уникальный идентификатор, присваиваемый каждой единице активного оборудования компьютерных сетей",
+            "created_at": "2024-03-20T12:00:00Z"
+        }
+    },
+    {
+        "model": "network_anki.terms",
+        "pk": 3,
+        "fields": {
+            "term": "DNS",
+            "definition": "Система доменных имен, преобразующая символьные имена доменов в IP-адреса",
+            "created_at": "2024-03-20T12:00:00Z"
+        }
+    },
+    {
+        "model": "network_anki.termauthors",
+        "pk": 1,
+        "fields": {
+            "term_id": 1,
+            "author": "db",
+            "email": "db@db.ru"
+        }
+    },
+    {
+        "model": "network_anki.termauthors",
+        "pk": 2,
+        "fields": {
+            "term_id": 2,
+            "author": "db",
+            "email": "db@db.ru"
+        }
+    },
+    {
+        "model": "network_anki.termauthors",
+        "pk": 3,
+        "fields": {
+            "term_id": 3,
+            "author": "db",
+            "email": "db@db.ru"
+        }
+    }
+]

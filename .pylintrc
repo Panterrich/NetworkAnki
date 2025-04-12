@@ -1,0 +1,4 @@
+[MASTER]
+load-plugins=pylint_django,pylint_django.checkers.migrations
+django-settings-module=network_anki.settings
+ignore=network_anki/migrations/*

@@ -22,5 +22,8 @@ urlpatterns = [
     path('terms-list', views.terms_list, name='terms-list'),
     path('add-term', views.add_term, name='add-term'),
     path('send-term', views.send_term, name='send-term'),
+    path('quiz', views.quiz, name='quiz'),
+    path('quiz-results', views.quiz_results, name='quiz-results'),
+    path('check-answer', views.check_answer, name='check-answer'),
     path('stats', views.show_stats, name='stats')
 ]

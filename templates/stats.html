@@ -34,6 +34,20 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card blue lighten-5">
+                        <div class="card-content">
+                            <span class="card-title">Топ 5 пользователей</span>
+                            {% for user in top_users %}
+                            <p class="card-text">
+                                {{ forloop.counter }}. {{ user.author }} ({{ user.email }}) - {{ user.terms_count }} терминов
+                            </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

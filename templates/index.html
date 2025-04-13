@@ -1,50 +1,59 @@
 {% extends "base_page.html" %}
 
 {% block page-title %}
-Компьютерные сети и их термины
+Network Anki
 {% endblock page-title %}
 
+{% block page-lead %}
+Система для изучения сетевых терминов
+{% endblock page-lead %}
+
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col s12">
-            <h4 class="page-header">Что есть в этом проекте</h4>
+<div class="row">
+    <div class="col s12 m6">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Термины</span>
+                <p>Просмотрите список всех сетевых терминов и их определений.</p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'terms-list' %}" class="btn">Перейти к терминам</a>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Список терминов</span>
-                    <p class="card-text">Простая страница с контентом, который разложен в таблицу. Содержимое таблицы находится в текстовом
-                        файле (если вы уверенно себя чувствуете, замените текстовый файл на базу данных).</p>
-                </div>
-                <div class="card-action">
-                    <a href="{% url 'terms-list' %}" class="btn">Посмотреть</a>
-                </div>
+    <div class="col s12 m6">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Добавить термин</span>
+                <p>Добавьте новый термин в базу данных.</p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'add-term' %}" class="btn">Добавить</a>
             </div>
         </div>
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Форма для заполнения термина</span>
-                    <p class="card-text">Пример POST-запроса, который отправится после того, как вы заполните форму. Он допишет термин в ваш
-                        текстовый файл, и если всё будет успешно — вас перенаправят на страницу терминов</p>
-                </div>
-                <div class="card-action">
-                    <a href="{% url 'add-term' %}" class="btn">Заполнить</a>
-                </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 m6">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Квиз</span>
+                <p>Проверьте свои знания в интерактивном квизе. Вам будет предложено угадать определение термина из нескольких вариантов ответа.</p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'quiz' %}" class="btn">Начать квиз</a>
             </div>
         </div>
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Статистика</span>
-                    <p class="card-text">Сколько терминов уже есть? Какой они длины?</p>
-                </div>
-                <div class="card-action">
-                    <a href="{% url 'stats' %}" class="btn">Изучить</a>
-                </div>
+    </div>
+    <div class="col s12 m6">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Статистика</span>
+                <p>Посмотрите статистику по терминам в базе данных.</p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'stats' %}" class="btn">Показать статистику</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,24 @@
+{% extends "base_page.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-content">
+            <div class="section">
+                <div class="quiz-results">
+                    <h4>Квиз завершен!</h4>
+                    <h5>Ваш результат: {{ score }} из {{ terms_count }}</h5>
+                    <p>Процент правильных ответов: {% widthratio score|default:0 terms_count 100 %}%</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="quiz-actions">
+                    <a href="{% url 'quiz' %}" class="btn">Начать заново</a>
+                    <a href="{% url 'index' %}" class="btn">На главную</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

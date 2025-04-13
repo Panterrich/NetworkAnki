@@ -1,0 +1,85 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Квиз по терминам
+{% endblock page-title %}
+
+{% block page-lead %}
+Проверьте свои знания сетевых терминов
+{% endblock page-lead %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-content">
+            {% if error %}
+                <div class="red-text">{{ error }}</div>
+            {% else %}
+                <div class="quiz-header">
+                    <div class="question">
+                        <h5>Вопрос: {{ current_term }} из {{ total }}.</h5>
+                    </div>
+                    <div class="score">
+                        <h5>Счет: {{ score }}</h5>
+                    </div>
+                </div>
+
+                {% if message %}
+                    <div class="row">
+                        <div class="col s12">
+                            <h5 class="{% if 'Правильно' in message %}green-text{% else %}red-text{% endif %}">
+                                {{ message }}
+                            </h5>
+                        </div>
+                    </div>
+                    {% if correct_answer and 'Правильно' not in message %}
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="correct-answer-block">
+                                    <h5>Правильный ответ:</h5>
+                                    <div class="correct-answer">{{ correct_answer }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+
+                {% if not show_next %}
+                    <div class="row">
+                        <div class="col s12">
+                            <h4>Что такое "{{ term }}"?</h4>
+                        </div>
+                    </div>
+
+                    <form method="post" action="{% url 'check-answer' %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            {% for definition in definitions %}
+                                <div class="col s12">
+                                    <p>
+                                        <label>
+                                            <input name="answer" type="radio" value="{{ definition }}" required>
+                                            <span>{{ definition }}</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button type="submit" class="btn">Ответить</button>
+                            </div>
+                        </div>
+                    </form>
+                {% else %}
+                    <div class="row">
+                        <div class="col s12">
+                            <a href="{% url 'quiz' %}" class="btn">Следующий вопрос</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

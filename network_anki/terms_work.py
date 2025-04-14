@@ -12,10 +12,10 @@ def get_terms_for_table():
     return terms
 
 
-def write_term(new_term, new_definition):
+def write_term(new_term, new_definition, user_name, user_email):
     """Adds a new term and its author to the database."""
     term = Terms(term=new_term, definition=new_definition)
-    term_addition = TermAuthors(term_id=term, author="user", email="user@example.com")
+    term_addition = TermAuthors(term_id=term, author=user_name, email=user_email)
     term.save()
     term_addition.save()
 
@@ -23,7 +23,6 @@ def write_term(new_term, new_definition):
 def get_terms_stats():
     """Calculates statistics about the terms in the database."""
     db_terms = TermAuthors.objects.filter(author="db").count()
-    user_terms = TermAuthors.objects.filter(author="user").count()
     all_terms = Terms.objects.all()
     defin_len = [len(term.definition.split()) for term in all_terms]
 
@@ -34,9 +33,9 @@ def get_terms_stats():
                  .order_by('-terms_count')[:5])
 
     stats = {
-        "terms_all": db_terms + user_terms,
+        "terms_all": len(all_terms),
         "terms_own": db_terms,
-        "terms_added": user_terms,
+        "terms_added": len(all_terms) - db_terms,
         "words_avg": sum(defin_len)/len(defin_len) if defin_len else 0,
         "words_max": max(defin_len) if defin_len else 0,
         "words_min": min(defin_len) if defin_len else 0,

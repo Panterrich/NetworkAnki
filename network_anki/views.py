@@ -39,6 +39,7 @@ def send_term(request):
 
     cache.clear()
     user_name = request.POST.get("name")
+    user_mail = request.POST.get("email")
     new_term = request.POST.get("new_term", "")
     new_definition = request.POST.get("new_definition", "").replace(";", ",")
     context = {"user": user_name}
@@ -51,7 +52,7 @@ def send_term(request):
     else:
         context["success"] = True
         context["comment"] = "Ваш термин принят"
-        terms_work.write_term(new_term, new_definition)
+        terms_work.write_term(new_term, new_definition, user_name, user_mail)
     if context["success"]:
         context["success-title"] = ""
     return render(request, "terms_request.html", context)
